@@ -1,5 +1,4 @@
 package main;
-//lol
 import java.sql.SQLException;
 
 import controller.ControllerFacade;
