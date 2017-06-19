@@ -14,7 +14,7 @@ public class ViewFacade implements IView {
      * Instantiates a new view facade.
      */
     public ViewFacade() {
-        super();
+        //super();
     }
 
     /*
@@ -25,5 +25,8 @@ public class ViewFacade implements IView {
     public final void displayMessage(final String message) {
         JOptionPane.showMessageDialog(null, message);
     }
-
+    public void Pseudo(){
+	    JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
+	    String nom = jop.showInputDialog(null, "Veuillez écrire votre pseudo !", "BoulderDash", JOptionPane.QUESTION_MESSAGE);
+    }
 }
