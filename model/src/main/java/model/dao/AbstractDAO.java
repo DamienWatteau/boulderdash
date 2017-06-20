@@ -1,46 +1,73 @@
 package model.dao;
 
-import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
-/**
- * <h1>The Class AbstractDAO.</h1>
- * 
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
-public abstract class AbstractDAO {
+import com.mysql.jdbc.ResultSetMetaData;
 
-    /**
-     * Execute query.
-     *
-     * @param query
-     *            the query
-     * @return the result set
-     */
-    protected static ResultSet executeQuery(final String query) {
-        return BoulderDashBDDConnector.getInstance().executeQuery(query);
-    }
+public class AbstractDAO {
 
-    /**
-     * Execute update.
-     *
-     * @param query
-     *            the query
-     * @return the int
-     */
-    protected static int executeUpdate(final String query) {
-        return BoulderDashBDDConnector.getInstance().executeUpdate(query);
-    }
+	private Connection connection;
+	private Statement statement;
 
-    /**
-     * Prepare call.
-     *
-     * @param query
-     *            the query
-     * @return the callable statement
-     */
-    protected static CallableStatement prepareCall(final String query) {
-        return BoulderDashBDDConnector.getInstance().prepareCall(query);
-    }
+	// JDBC driver name and database URL
+	private String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+	private String url = "jdbc:mysql://localhost/boulderdash";
+	// Database credentials
+	private String user = "root";
+	private String passwd = "";
+
+	public AbstractDAO() {
+		this.connection = null;
+		this.statement = null;
+	}
+
+	public void open() {
+
+		try {
+			// Register JDBC driver
+			Class.forName(JDBC_DRIVER);
+			// Open a connection
+			System.out.println("Connecting to a selected database... ");
+			// connection = DriverManager.getConnection(URL, USER, PASS);
+			connection = BoulderDashBDDConnector.getInstance();
+			System.out.println("Success!");
+
+			// cr�ation d'un objet statement
+			// Statement permet d'exécuter des instructions SQL
+			// il interroge la bdd et retourne les resultats
+			Statement state = connection.createStatement();
+			ResultSet result = state.executeQuery("SELECT " + "player_score,player_time,player_name,map_name "
+					+ " FROM play NATURAL JOIN players, maps");
+
+			// ResultSetMetaData resultMeta = result.getMetaData();
+			ResultSetMetaData resultMeta = (ResultSetMetaData) result.getMetaData();
+			System.out.println("\n");
+
+			// On affiche le nom des colonnes
+			for (int i = 1; i <= resultMeta.getColumnCount(); i++) // resultMeta récupére les métadonnées de la  requéte
+			{
+				System.out.print("\t" + resultMeta.getColumnName(i).toUpperCase() + "\t");
+			}
+
+			System.out.println("\n");
+
+			while (result.next()) {
+				for (int i = 1; i <= resultMeta.getColumnCount(); i++) {
+					System.out.print("\t" + result.getObject(i).toString() + "\t");
+				}
+
+				System.out.println("\n");
+
+			}
+			result.close();
+			state.close();
+			connection.close();
+		} catch (Exception e) {
+			// Handle errors for JDBC
+			e.printStackTrace();
+		}
+	}
 }
