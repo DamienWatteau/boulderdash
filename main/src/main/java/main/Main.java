@@ -1,6 +1,9 @@
 package main;
 
-import java.awt.Menu;
+import javax.swing.JFrame;
+
+import model.dao.BddRequete;
+import view.Menu;
 
 /**
  * <h1>The Class Main.</h1>
@@ -17,10 +20,11 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
-    	 Menu menu = new Menu();
-  	   BddRequete requete = new BddRequete();
-  	   requete.user(menu.MenuPseudo());
-  	   menu.MenuLevel();
+    	 
+    	Menu menu = new Menu();
+  	   	BddRequete requete = new BddRequete();
+  	   	requete.user(menu.MenuPseudo());
+  	   	menu.MenuLevel();
   	   
   		JFrame fen = new JFrame();
   	   

@@ -23,5 +23,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/model"/>
+	<classpathentry kind="lib" path="E:/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
