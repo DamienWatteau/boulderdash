@@ -26,11 +26,11 @@ public abstract class Main {
   	   	requete.user(menu.MenuPseudo());
   	   	menu.MenuLevel();
   	   
-  		JFrame fen = new JFrame();
-  	   
-  		BddRequete requete2 = new BddRequete();
-  		requete2.selectTable();	
-  		
+//  		JFrame fen = new JFrame();
+//  	   
+//  		BddRequete requete2 = new BddRequete();
+//  		requete2.selectTable();	
+//  		
 
     }
 }
