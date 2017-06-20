@@ -1,38 +1,37 @@
 package model.dao;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import com.mysql.jdbc.Connection;
-
 public class BoulderDashBDDConnector {
-
-<<<<<<< HEAD
-	/** The login. */
-	private static String user = "root";
-
-	/** The password. */
-	private static String password = "";
-
-	/** The url. */
-=======
->>>>>>> 119c1e2e1a7a27bff74acf435a5568fd0a0c32eb
-	private static String url = "jdbc:mysql://localhost/boulderdash";
-	private static String user = "root";
-	private static String pass = "";
-	private static Connection connect;
-
-	public static Connection getInstance() {
-		if (connect == null) {
-			try {
-				connect = (Connection) DriverManager.getConnection(url, user, pass);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+	  //URL de connexion
+	  private String url = "jdbc:mysql://localhost/boulderdash?autoReconnect=true&useSSL=false";
+	  //Nom du user
+	  private String user = "root";
+	  //Mot de passe de l'utilisateur
+	  private String passwd = "";
+	  //Objet Connection
+	  private static Connection connect;
+	   
+	  //Constructeur privé
+	  private BoulderDashBDDConnector(){
+	    try {
+	      connect = DriverManager.getConnection(url, user, passwd);
+	    } catch (SQLException e) {
+	      e.printStackTrace();
+	    }
+	  }
+	   
+	  //Méthode qui va nous retourner notre instance et la créer si elle n'existe pas
+	  public static Connection getInstance(){
+		  if(connect == null){
+		    new BoulderDashBDDConnector();
+		    System.out.println("INSTANCIATION DE LA CONNEXION SQL ! ");
+		  }
+		  else{
+		    System.out.println("CONNEXION SQL EXISTANTE ! ");
+		  }
+		  return connect;   
 		}
-		return connect;
-	}
 }
-
-// L'instanciation ne se fait qu'une seule fois, notre connexion à la BDD est
-// unique

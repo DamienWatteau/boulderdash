@@ -18,6 +18,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Programme/Netbeans/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar"/>
+	<classpathentry kind="lib" path="E:/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
