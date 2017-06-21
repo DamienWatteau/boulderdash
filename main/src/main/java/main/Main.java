@@ -1,5 +1,7 @@
 package main;
 
+import java.io.IOException;
+
 import model.dao.BddRequete;
 import view.Menu;
 
@@ -23,7 +25,7 @@ public abstract class Main {
     /** Spawn vehicle position Y. */
     private static final int startY = 0;
     
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws IOException, InterruptedException  {
     	 
     	Menu menu = new Menu();
   	   	BddRequete requete = new BddRequete();
