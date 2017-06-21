@@ -2,6 +2,11 @@ package main;
 
 import java.io.IOException;
 
+import fr.exia.insanevehicles.controller.BoulderdashController;
+import fr.exia.insanevehicles.controller.IBoulderdashController;
+import fr.exia.insanevehicles.model.BoulderdashModel;
+import fr.exia.insanevehicles.model.IBoulderdashModel;
+import fr.exia.insanevehicles.view.InsaneVehiclesView;
 import model.dao.BddRequete;
 import view.Menu;
 
@@ -37,14 +42,10 @@ public abstract class Main {
 //  		BddRequete requete2 = new BddRequete();
 //  		requete2.selectTable();	
 //  		
-  	   	final IInsaneVehiclesModel model = new InsaneVehiclesModel("road.txt", startX, startY);
+  	   	final IBoulderdashModel model = new BoulderdashModel("road.txt", startX, startY);
   	   	final InsaneVehiclesView view = new InsaneVehiclesView(model.getRoad(), model.getMyVehicle());
-  	   	final IIinsaneVehiclesController controller = new InsaneVehiclesController(view, model);
+  	   	final IBoulderdashController controller = new BoulderdashController(view, model);
   	   	view.setOrderPerformer(controller.getOrderPeformer());
-
-  	   	controller.play();
-  	   	
-  	   	
   	   	
     }
 }
