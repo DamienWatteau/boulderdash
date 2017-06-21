@@ -1,14 +1,12 @@
 package main;
 
-import javax.swing.JFrame;
-
 import model.dao.BddRequete;
 import view.Menu;
 
 /**
  * <h1>The Class Main.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Damien Watteau
  * @version 1.0
  */
 public abstract class Main {
@@ -19,6 +17,12 @@ public abstract class Main {
      * @param args
      *            the arguments
      */
+	/** Spawn vehicle position X. */
+    private static final int startX = 5;
+
+    /** Spawn vehicle position Y. */
+    private static final int startY = 0;
+    
     public static void main(final String[] args) {
     	 
     	Menu menu = new Menu();
@@ -31,6 +35,14 @@ public abstract class Main {
 //  		BddRequete requete2 = new BddRequete();
 //  		requete2.selectTable();	
 //  		
+  	  final IInsaneVehiclesModel model = new InsaneVehiclesModel("road.txt", startX, startY);
+      final InsaneVehiclesView view = new InsaneVehiclesView(model.getRoad(), model.getMyVehicle());
+      final IIinsaneVehiclesController controller = new InsaneVehiclesController(view, model);
+      view.setOrderPerformer(controller.getOrderPeformer());
 
+      controller.play();
+  	   	
+  	   	
+  	   	
     }
 }
