@@ -2,11 +2,6 @@ package main;
 
 import java.io.IOException;
 
-import fr.exia.insanevehicles.controller.BoulderdashController;
-import fr.exia.insanevehicles.controller.IBoulderdashController;
-import fr.exia.insanevehicles.model.BoulderdashModel;
-import fr.exia.insanevehicles.model.IBoulderdashModel;
-import fr.exia.insanevehicles.view.BoulderdashView;
 import model.dao.BddRequete;
 import view.Menu;
 

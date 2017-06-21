@@ -1,22 +1,23 @@
 package controller;
 
-public class UserOrder implements IUserOrder {
+/**
+ * <h1>The Enum UserOrder.</h1>
+ *
+ * @author Damien Watteau
+ * @version 0.1
+ */
+public enum UserOrder {
 
-    private final int player;
-    private final Order order;
+    /** The right. */
+    RIGHT,
 
-    public UserOrder(final int player, final Order order) {
-        this.player = player; // Player 1 
-        this.order = order; // In fonction of enumeration
-    }
-
-    @Override
-    public int getPlayer() {
-        return this.player;
-    }
-
-    @Override
-    public Order getOrder() {
-        return this.order;
-    }
+    /** The left. */
+    LEFT,
+    
+    DOWN,
+    
+    UP,
+    /** The nop. */
+    NOP;
 }
+
