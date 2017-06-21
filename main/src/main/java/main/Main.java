@@ -6,7 +6,7 @@ import fr.exia.insanevehicles.controller.BoulderdashController;
 import fr.exia.insanevehicles.controller.IBoulderdashController;
 import fr.exia.insanevehicles.model.BoulderdashModel;
 import fr.exia.insanevehicles.model.IBoulderdashModel;
-import fr.exia.insanevehicles.view.InsaneVehiclesView;
+import fr.exia.insanevehicles.view.BoulderdashView;
 import model.dao.BddRequete;
 import view.Menu;
 
@@ -43,9 +43,11 @@ public abstract class Main {
 //  		requete2.selectTable();	
 //  		
   	   	final IBoulderdashModel model = new BoulderdashModel("road.txt", startX, startY);
-  	   	final InsaneVehiclesView view = new InsaneVehiclesView(model.getRoad(), model.getMyVehicle());
+  	   	final BoulderdashView view = new BoulderdashView(model.getRoad(), model.getMyVehicle());
   	   	final IBoulderdashController controller = new BoulderdashController(view, model);
   	   	view.setOrderPerformer(controller.getOrderPeformer());
+
+  	   	controller.play();
   	   	
     }
 }
