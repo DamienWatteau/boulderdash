@@ -7,16 +7,6 @@ import com.mysql.jdbc.Connection;
 
 public class BoulderDashBDDConnector {
 
-<<<<<<< HEAD
-	/** The login. */
-	private static String user = "root";
-
-	/** The password. */
-	private static String password = "";
-
-	/** The url. */
-=======
->>>>>>> 119c1e2e1a7a27bff74acf435a5568fd0a0c32eb
 	private static String url = "jdbc:mysql://localhost/boulderdash";
 	private static String user = "root";
 	private static String pass = "";
