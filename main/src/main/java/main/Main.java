@@ -37,12 +37,12 @@ public abstract class Main {
 //  		BddRequete requete2 = new BddRequete();
 //  		requete2.selectTable();	
 //  		
-  	  final IInsaneVehiclesModel model = new InsaneVehiclesModel("road.txt", startX, startY);
-      final InsaneVehiclesView view = new InsaneVehiclesView(model.getRoad(), model.getMyVehicle());
-      final IIinsaneVehiclesController controller = new InsaneVehiclesController(view, model);
-      view.setOrderPerformer(controller.getOrderPeformer());
+  	   	final IInsaneVehiclesModel model = new InsaneVehiclesModel("road.txt", startX, startY);
+  	   	final InsaneVehiclesView view = new InsaneVehiclesView(model.getRoad(), model.getMyVehicle());
+  	   	final IIinsaneVehiclesController controller = new InsaneVehiclesController(view, model);
+  	   	view.setOrderPerformer(controller.getOrderPeformer());
 
-      controller.play();
+  	   	controller.play();
   	   	
   	   	
   	   	
